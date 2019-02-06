@@ -5,20 +5,13 @@ using UnityEngine;
 
 public class DefaultCollectible : MonoBehaviour
 {
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            GetComponentInParent<Values>().KeyCount++;
+            if (GetComponentInParent<Values>().KeyCount == 2)
+                Destroy(GameObject.Find("Door"));
             Destroy(this.gameObject);
         }
     }
