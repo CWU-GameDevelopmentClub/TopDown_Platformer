@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class PlayerMovement : MonoBehaviour
 {
     private float XSpeed;
@@ -12,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     private bool LeftPress, RightPress, UpPress, DownPress, JumpPress;
     public int Deceleration;
     private Rigidbody rb;
+
+    private int Keys;
 
     // Use this for initialization
     void Start()
