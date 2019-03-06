@@ -31,8 +31,14 @@ public class EnemyAI : MonoBehaviour {
 
        if(atTimer > attackRate)
         {
+            Stand();
             attack.DoAttack();
             atTimer = 0;
+        }
+
+        if (this.GetComponent<Health>())
+        {
+            
         }
 
     }
@@ -40,6 +46,11 @@ public class EnemyAI : MonoBehaviour {
     private void Walk()
     {
         rb.velocity = new Vector3(speed, 0, speed) * Random.Range(-2f,2f);
+    }
+
+    private void Stand()
+    {
+        rb.velocity = new Vector3(0, 0, 0);
     }
 
 }

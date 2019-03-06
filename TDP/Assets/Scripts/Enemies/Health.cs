@@ -67,5 +67,9 @@ public class Health : MonoBehaviour
             health = MAX_HEALTH;
         }
     }
-}
 
+    public float GetHealth()
+    {
+        return health;
+    }
+}  

@@ -11,10 +11,17 @@ public class Attack : MonoBehaviour
     public KeyCode attack;
     private BoxCollider attackBox;
     Vector3 direction;
+
+    public Color attackColor;
+    private Color defaultColor;
+
+    public SpriteRenderer sr;
+
     // Use this for initialization
     void Start()
     {
         attackBox = GetComponent<BoxCollider>();
+        defaultColor = sr.color;
     }
 
     float timer = 0;
@@ -29,10 +36,12 @@ public class Attack : MonoBehaviour
         if (attackBox.enabled)
         {
             timer += Time.deltaTime;
+            sr.color = attackColor;
             if (timer > attackTime)
             {
                 attackBox.enabled = false;
                 timer = 0;
+                sr.color = defaultColor;
             }
         }
     }
